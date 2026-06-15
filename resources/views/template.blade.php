@@ -53,10 +53,20 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/kaos">
+                        <a class="nav-link" href="/eas">
                             EAS
                         </a>
+                    {{-- </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/buku">
+                            Buku
+                        </a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sewa">
+                            Sewa
+                        </a>
+                    </li> --}}
                 </ul>
 
             </div>

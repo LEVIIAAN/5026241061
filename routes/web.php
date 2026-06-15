@@ -9,7 +9,9 @@ use App\Http\Controllers\KeranjangBelanjaController;
 use App\Http\Controllers\NilaiKuliahController;
 use App\Http\Controllers\KaosController;
 use App\Http\Controllers\SiswaController;
-
+use App\Http\Controllers\BukuController;
+use App\Http\Controllers\SewaController;
+use App\Http\Controllers\easController;
 
 
 Route::get('/', function () {
@@ -29,8 +31,7 @@ Route::get('/kontak', function () {
 });
 
 
-Route::get('/formulir', [PegawaiController::class, 'formulir']);
-
+//CRUD Dosen
 Route::get('/dosen', [DosenController::class, 'index']);
 Route::get('/biodata', [DosenController::class, 'biodata']); // penting
 Route::get('/pegawai/{nama}', [PegawaiController::class, 'index']);
@@ -41,6 +42,7 @@ Route::get('/blog/kontak', [BlogController::class, 'kontak']);
 
 //CRUD Pegawai
 Route::get('/pegawai', [PegawaiDBController::class, 'index']);
+Route::get('/formulir', [PegawaiController::class, 'formulir']);
 Route::get('/pegawai/cari', [PegawaiDBController::class, 'cari']);
 Route::get('/pegawai/tambah', [PegawaiDBController::class, 'tambah']);
 Route::post('/pegawai/store', [PegawaiDBController::class, 'store']);
@@ -75,3 +77,18 @@ Route::post('/siswa', [SiswaController::class, 'store'])->name('siswa.store');
 Route::get('/siswa/{nrp}/edit', [SiswaController::class, 'edit'])->name('siswa.edit');
 Route::put('/siswa/{nrp}', [SiswaController::class, 'update'])->name('siswa.update');
 Route::delete('/siswa/{nrp}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
+
+//Route Buku
+Route::get('/buku', [BukuController::class, 'index']);
+Route::get('/buku/pinjam/{id}', [BukuController::class, 'pinjam']);
+
+//Route Sewa
+Route::get('/sewa', [SewaController::class, 'index']);
+Route::get('/sewa/tambah', [SewaController::class, 'tambah']);
+Route::post('/sewa/store', [SewaController::class, 'store']);
+Route::get('/sewa/hapus/{id}', [SewaController::class, 'batal']);
+
+//Route EAS
+Route::get('/eas', [easController::class, 'index']);
+Route::get('/eas/tambah', [easController::class, 'tambah']);
+Route::post('/eas/store', [easController::class, 'store']);
